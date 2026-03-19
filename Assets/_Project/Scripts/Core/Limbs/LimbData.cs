@@ -11,7 +11,7 @@ namespace _Project.Core.Limbs
         [SerializeField] private LimbType _type;
         [SerializeField] private CreatureType _creatureType;
         [SerializeField] private StatData[] _stats;
-        
+
         public LimbType Type => _type;
         public CreatureType CreatureType => _creatureType;
         public StatData[] Stats => _stats;
@@ -22,9 +22,12 @@ namespace _Project.Core.Limbs
     {
         public LimbData Data { get; private set; }
 
+        public StatContainer Stats { get; private set; }
+
         public Limb(LimbData data)
         {
             Data = data;
+            Stats = new StatContainer(data.Stats);
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace _Project.Core.Stats
 {
@@ -25,6 +26,39 @@ namespace _Project.Core.Stats
             AoeChance = aoeChance;
             MentalDamageChance = mentalDamageChance;
             Stability = stability;
+        }
+
+        public StatContainer(StatData[] statsData)
+        {
+            foreach (var statData in statsData)
+            {
+                switch (statData.StatType)
+                {
+                    case StatType.Hp:
+                        Hp = Mathf.RoundToInt(statData.Value);
+                        break;
+                    case StatType.Armor:
+                        Armor = Mathf.RoundToInt(statData.Value);
+                        break;
+                    case StatType.Attack:
+                        Attack = Mathf.RoundToInt(statData.Value);
+                        break;
+                    case StatType.CritChance:
+                        CritChance = statData.Value;
+                        break;
+                    case StatType.AdditionalHitChance:
+                        AdditionalHitChance = statData.Value;
+                        break;
+                    case StatType.AoeChance:
+                        AoeChance = statData.Value;
+                        break;
+                    case StatType.MentalDamageChance:
+                        MentalDamageChance = statData.Value;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
         }
 
         public void Reset()

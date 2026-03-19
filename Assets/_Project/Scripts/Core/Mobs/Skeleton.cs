@@ -1,29 +1,23 @@
 ﻿using System;
+using _Project.Core.Abilities;
 using _Project.Core.Limbs;
 using _Project.Core.Stats;
-using _Project.UI.Limbs;
+using _Project.UI.Table;
 using UnityEngine;
 
 namespace _Project.Core.Mobs
 {
-    public class Skeleton
+    public class Skeleton : Mob
     {
-        private Limb _head;
-        private Limb _rightArm;
-        private Limb _leftArm;
-        private Limb _rightLeg;
-        private Limb _leftLeg;
-        private StatContainer _stats;
         private StatUpgrades _statUpgrades;
         private CreatureType[] _setBonuses;
+        private Ability[] _abilities;
 
-        public Skeleton(Limb head, Limb rightArm, Limb leftArm, Limb rightLeg, Limb leftLeg)
+        public Skeleton(Limb head, Limb rightArm, Limb leftArm, Limb rightLeg, Limb leftLeg) : base(head, rightArm,
+            leftArm, rightLeg, leftLeg)
         {
-            _head = head;
-            _rightArm = rightArm;
-            _leftArm = leftArm;
-            _rightLeg = rightLeg;
-            _leftLeg = leftLeg;
+            _setBonuses = new CreatureType[3];
+            _abilities = new Ability[3];
         }
 
         public void SwitchLimb(LimbSlotType slotType, Limb limb)

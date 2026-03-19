@@ -8,7 +8,7 @@ namespace _Project.Core.Stats
     {
         [SerializeField] private StatType _statType;
         [SerializeField] private float _value;
-        
+
         public StatType StatType => _statType;
         public float Value => _value;
     }
