@@ -1,4 +1,6 @@
-﻿namespace _Project.Core.Mobs
+﻿using UnityEngine;
+
+namespace _Project.Core.Mobs
 {
     public class SkeletonSquad
     {
@@ -14,7 +16,11 @@
 
         public Skeleton GetSkeletonByIndex(int index)
         {
-            return _skeletons[index];
+            if (index < _skeletons.Length && index >= 0)
+                return _skeletons[index];
+
+            Debug.Log($"Skeleton {index} out of range, null returned");
+            return null;
         }
     }
 }

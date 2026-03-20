@@ -3,6 +3,7 @@ using _Project.Core.Abilities;
 using _Project.Core.Limbs;
 using _Project.Core.Stats;
 using _Project.UI.Table;
+using _Project.UI.Table.LimbSlots;
 using UnityEngine;
 
 namespace _Project.Core.Mobs
@@ -10,14 +11,11 @@ namespace _Project.Core.Mobs
     public class Skeleton : Mob
     {
         private StatUpgrades _statUpgrades;
-        private CreatureType[] _setBonuses;
-        private Ability[] _abilities;
 
         public Skeleton(Limb head, Limb rightArm, Limb leftArm, Limb rightLeg, Limb leftLeg) : base(head, rightArm,
             leftArm, rightLeg, leftLeg)
         {
-            _setBonuses = new CreatureType[3];
-            _abilities = new Ability[3];
+            _statUpgrades = new StatUpgrades();
         }
 
         public void SwitchLimb(LimbSlotType slotType, Limb limb)
@@ -44,20 +42,10 @@ namespace _Project.Core.Mobs
                     break;
             }
 
-            RecalculateSetBonuses();
-            RecalculateStats();
-            RecalculateAbilities();
+            Recalculate();
         }
 
-        private void RecalculateStats()
-        {
-        }
-
-        private void RecalculateSetBonuses()
-        {
-        }
-
-        private void RecalculateAbilities()
+        protected override void RecalculateStats()
         {
         }
     }

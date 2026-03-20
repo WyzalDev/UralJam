@@ -15,17 +15,8 @@ namespace _Project.Core.Stats
         public float MentalDamageChance;
         public float Stability;
 
-        public StatContainer(int hp, int armor, int attack, float critChance, float additionalHitChance,
-            float aoeChance, float mentalDamageChance, float stability)
+        public StatContainer()
         {
-            Hp = hp;
-            Armor = armor;
-            Attack = attack;
-            CritChance = critChance;
-            AdditionalHitChance = additionalHitChance;
-            AoeChance = aoeChance;
-            MentalDamageChance = mentalDamageChance;
-            Stability = stability;
         }
 
         public StatContainer(StatData[] statsData)
@@ -59,6 +50,19 @@ namespace _Project.Core.Stats
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        public void SetStats(int hp, int armor, int attack, float critChance, float additionalHitChance,
+            float aoeChance, float mentalDamageChance, float stability)
+        {
+            Hp = hp;
+            Armor = armor;
+            Attack = attack;
+            CritChance = critChance;
+            AdditionalHitChance = additionalHitChance;
+            AoeChance = aoeChance;
+            MentalDamageChance = mentalDamageChance;
+            Stability = stability;
         }
 
         public void Reset()

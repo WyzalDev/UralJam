@@ -1,4 +1,5 @@
 ﻿using _Project.Core.Mobs;
+using Zenject;
 
 namespace _Project.Core.Table
 {
@@ -6,8 +7,9 @@ namespace _Project.Core.Table
     {
         private Skeleton _selectedSkeleton;
         private int _selectedSkeletonIndex;
-        private SkeletonSquad _skeletonSquad;
+        private readonly SkeletonSquad _skeletonSquad;
 
+        [Inject]
         public SkeletonSwitcher(SkeletonSquad skeletonSquad)
         {
             _skeletonSquad = skeletonSquad;

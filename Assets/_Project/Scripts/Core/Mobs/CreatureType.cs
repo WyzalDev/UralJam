@@ -2,6 +2,7 @@
 {
     public enum CreatureType
     {
+        Skeleton,
         Knight,
         Demon,
         Sea,

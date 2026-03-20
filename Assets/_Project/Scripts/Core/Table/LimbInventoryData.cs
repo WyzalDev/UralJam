@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Project.Core.Limbs;
 using UnityEngine;
 
 namespace _Project.Core.Table
 {
-    [CreateAssetMenu(menuName = "Game/LimbInventoryData")]
-    public class LimbInventoryData : ScriptableObject
+    [Serializable]
+    public class LimbInventoryData
     {
-        [SerializeField] private int _slotsCountForEachInventory;
-
-        public int SlotsCountForEachInventory => _slotsCountForEachInventory;
+        public int SlotsCountForEachInventory;
     }
 
 

@@ -1,5 +1,10 @@
 ﻿using System;
 using _Project.UI.Table;
+using _Project.UI.Table.Inventory;
+using _Project.UI.Table.LimbSlots;
+using _Project.UI.Table.SetBonuses;
+using _Project.UI.Table.SkeletonAbilities;
+using _Project.UI.Table.SkeletonStats;
 using Zenject;
 
 namespace _Project.Core.Table
@@ -14,7 +19,23 @@ namespace _Project.Core.Table
         private SkeletonStatsView _statsView;
         private LimbSlotsView _limbSlotsView;
         private SetBonusesView _setBonusesView;
-        private AbilitiesView _abilitiesView;
+        private SkeletonAbilitiesView _skeletonAbilitiesView;
+
+        [Inject]
+        public LimbInventoriesPresenter(LimbInventory limbInventory, SkeletonSwitcher switcher,
+            SelectedLimbSlot selectedLimbSlot, InventorySlotsView inventorySlotsView,
+            SkeletonStatsView skeletonStatsView, LimbSlotsView limbSlotsView, SetBonusesView setBonusesView,
+            SkeletonAbilitiesView skeletonAbilitiesView)
+        {
+            _limbInventory = limbInventory;
+            _skeletonSwitcher = switcher;
+            _selectedLimbSlot = selectedLimbSlot;
+            _inventorySlotsView = inventorySlotsView;
+            _statsView = skeletonStatsView;
+            _limbSlotsView = limbSlotsView;
+            _setBonusesView = setBonusesView;
+            _skeletonAbilitiesView = skeletonAbilitiesView;
+        }
 
         public void Initialize()
         {

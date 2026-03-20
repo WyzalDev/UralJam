@@ -10,10 +10,12 @@ namespace _Project.Core.Limbs
     {
         [SerializeField] private LimbType _type;
         [SerializeField] private CreatureType _creatureType;
+        [SerializeField] private string _description;
         [SerializeField] private StatData[] _stats;
 
         public LimbType Type => _type;
         public CreatureType CreatureType => _creatureType;
+        public string Description => _description;
         public StatData[] Stats => _stats;
     }
 

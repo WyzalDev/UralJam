@@ -8,11 +8,13 @@ namespace _Project.Core.Abilities
     {
         [SerializeField] private string _name;
         [SerializeField] private string _formatDescription;
+        [SerializeField] private TargetType _targetType;
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _cooldown;
 
         public string Name => _name;
         public string Description => _formatDescription;
+        public TargetType TargetType => _targetType;
         public Sprite Icon => _icon;
         public int Cooldown => _cooldown;
 

@@ -1,31 +1,27 @@
 ﻿using System;
 using _Project.Core.Stats;
+using _Project.UI.HoverWindows.Managers;
+using _Project.UI.HoverWindows.Views;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.UI.Table
+namespace _Project.UI.Table.SkeletonStats
 {
-    public class SkeletonStatsView : MonoBehaviour
+    public class SkeletonStatView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _hp;
-        [SerializeField] private TMP_Text _armor;
-        [SerializeField] private TMP_Text _attack;
-        [SerializeField] private TMP_Text _critChance;
-        [SerializeField] private TMP_Text _additionalHitChance;
-        [SerializeField] private TMP_Text _aoeChance;
-        [SerializeField] private TMP_Text _mentalDamageChance;
-        [SerializeField] private TMP_Text _stability;
+        [SerializeField] private TMP_Text _value;
+        [SerializeField] private HoverStatWindowData _hoverWindowData;
 
-        public void Redraw(StatContainerData data)
+        private HoverStatWindowManager _hoverManager;
+
+        public void SetManager(HoverStatWindowManager hoverManager)
         {
-            _hp.text = data.Hp;
-            _armor.text = data.Armor;
-            _attack.text = data.Attack;
-            _critChance.text = data.CritChance;
-            _additionalHitChance.text = data.AdditionalHitChance;
-            _aoeChance.text = data.AoeChance;
-            _mentalDamageChance.text = data.MentalDamageChance;
-            _stability.text = data.Stability;
+            _hoverManager = hoverManager;
+        }
+
+        public void Redraw(string statValue)
+        {
+            _value.text = statValue;
         }
     }
 
